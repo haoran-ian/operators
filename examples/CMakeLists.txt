@@ -1,24 +1,13 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.17)
 
 project(cec_test)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
-set(EXTERNAL_DIR "/home/ian/IOHexperimenter/external")
 
-include_directories(${EXTERNAL_DIR}/fmt/include/)
-include_directories(${EXTERNAL_DIR}/clutchlog)
-include_directories(${EXTERNAL_DIR}/json/include)
+include_directories(/data/hyin/local/include)
 
+set(ioh_DIR "/data/hyin/local/lib64/cmake/ioh")
 find_package(ioh REQUIRED)
 
-add_executable(cec_test main.cpp)
+add_executable(cec_test init_population.cpp)
 target_link_libraries(cec_test ioh::ioh)
-
-add_executable(rotation_matrix rotation_matrix.cpp)
-target_link_libraries(rotation_matrix ioh::ioh)
-
-add_executable(rotation_matrix_2D rotation_matrix_2D.cpp)
-target_link_libraries(rotation_matrix)
-
-add_executable(porb1_rotation2D porb1_rotation2D.cpp)
-target_link_libraries(porb1_rotation2D ioh::ioh)
