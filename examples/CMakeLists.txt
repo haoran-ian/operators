@@ -9,5 +9,5 @@ include_directories(/data/hyin/local/include)
 set(ioh_DIR "/data/hyin/local/lib64/cmake/ioh")
 find_package(ioh REQUIRED)
 
-add_executable(cec_test init_population.cpp)
+add_executable(cec_test example.cpp)
 target_link_libraries(cec_test ioh::ioh)
